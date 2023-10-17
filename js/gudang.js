@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', async function () {
     const id_pengguna = parseInt(sessionStorage.getItem('id_pengguna'), 10);
 
     // URL API yang ingin Anda akses
-    const apiUrl = 'https://6523581ef43b179384155688.mockapi.io/api/v1/kasir_online';
+    const apiUrl = 'https://6523581ef43b179384155688.mockapi.io/api/v1/gudang';
     const nama = document.getElementById('nama');
     const tableBody = document.getElementById('tableBody');
 
@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', async function () {
         .then(data => {
             nama.textContent = data[id_pengguna].nama;
 
-            data[id_pengguna].gudang.forEach((item, index) => {
+            data.forEach((item, index) => {
                 const row = document.createElement('tr');
                 row.classList.add('border', 'border-gray-400', 'font-medium')
                 row.innerHTML = `<td class="py-3 text-center pl-3">${index + 1}</td>
@@ -55,14 +55,14 @@ document.addEventListener('DOMContentLoaded', async function () {
                                         </svg>
                                         <span class="font-semibold">Edit</span>
                                     </a>
-                                    <button data-id="${item.id}"
+                                    <button data-id="${item.id}" onclick="deleteItem(this)"
                                         class="flex justify-center items-center bg-red-500 px-3 py-0.5 rounded-lg hover:bg-red-600">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
                                             viewBox="0 0 24 24">
                                             <path fill="currentColor"
                                                 d="M6 19a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V7H6v12M8 9h8v10H8V9m7.5-5l-1-1h-5l-1 1H5v2h14V4h-3.5Z" />
                                         </svg>
-                                        <span class="font-semibold">Hapus</span>
+                                        <span class="font-semibold">Hapus ${item.id}</span>
                                     </button>
                                 </td>
                                 `
@@ -74,31 +74,68 @@ document.addEventListener('DOMContentLoaded', async function () {
             console.error('There was a problem with the fetch operation:', error);
         });
 
-    // Misalkan ada tombol "Hapus" dalam HTML dengan atribut data-id yang menyimpan ID data yang ingin dihapus.
-    const deleteButtons = document.querySelectorAll('[data-id]');
+    // // Misalkan ada tombol "Hapus" dalam HTML dengan atribut data-id yang menyimpan ID data yang ingin dihapus.
+    // const deleteButtons = document.querySelectorAll('[data-id]');
 
-    // Tambahkan event listener untuk setiap tombol "Hapus"
-    deleteButtons.forEach(button => {
-        button.addEventListener('click', async event => {
-            const dataId = event.target.getAttribute('data-id');
-            console.log(dataId);
-            try {
-                const response = await fetch(`https://6523581ef43b179384155688.mockapi.io/api/v1/kasir_online/${dataId}`, {
-                    method: 'DELETE',
-                });
+    // // Tambahkan event listener untuk setiap tombol "Hapus"
+    // deleteButtons.forEach(button => {
+    //     button.addEventListener('click', async event => {
+    //         const dataId = event.target.getAttribute('data-id');
+    //         console.log(dataId);
+    //         try {
+    //             const response = await fetch(`https://6523581ef43b179384155688.mockapi.io/api/v1/gudang/${dataId}`, {
+    //                 method: 'DELETE',
+    //             });
 
-                if (response.ok) {
-                    // Data telah berhasil dihapus dari API
-                    // Anda dapat melakukan tindakan apa pun yang diperlukan setelah penghapusan berhasil.
-                    // Misalnya, menghapus elemen HTML terkait dari tampilan.
-                    event.target.parentElement.remove(); // Menghapus baris yang terkait dari tampilan
-                } else {
-                    console.error('Gagal menghapus data dari API');
-                }
-            } catch (error) {
-                console.error('Terjadi kesalahan:', error);
-            }
-        });
-    });
-
+    //             if (response.ok) {
+    //                 // Data telah berhasil dihapus dari API
+    //                 // Anda dapat melakukan tindakan apa pun yang diperlukan setelah penghapusan berhasil.
+    //                 // Misalnya, menghapus elemen HTML terkait dari tampilan.
+    //                 event.target.parentElement.remove(); // Menghapus baris yang terkait dari tampilan
+    //             } else {
+    //                 console.error('Gagal menghapus data dari API');
+    //             }
+    //         } catch (error) {
+    //             console.error('Terjadi kesalahan:', error);
+    //         }
+    //     });
+    // });
 })
+
+async function deleteItem(button) {
+    const id = button.getAttribute('data-id');
+    console.log("luar" + id);
+
+    const dataId = id;
+    console.log("dalam" + dataId);
+    try {
+        const response = await fetch(`https://6523581ef43b179384155688.mockapi.io/api/v1/gudang/${dataId}`, {
+            method: 'DELETE',
+        });
+
+        if (response.ok) {
+            // Data telah berhasil dihapus dari API
+            // Anda dapat melakukan tindakan apa pun yang diperlukan setelah penghapusan berhasil.
+            // Misalnya, menghapus elemen HTML terkait dari tampilan.
+            // Remove the item from the table
+            const row = button.parentElement.parentElement;
+            
+            if (row) {
+                const table = row.parentElement;
+                table.removeChild(row);
+
+                // Perbarui nomor pada baris-baris lain
+                const rows = table.getElementsByTagName('tr');
+                for (let i = 1; i <= rows.length; i++) {
+                    rows[i - 1].cells[0].textContent = i; // Mengatur kembali nomor pada sel pertama (index 0)
+                }
+            } else {
+                console.error('Baris tidak ditemukan');
+            }
+        } else {
+            console.error('Gagal menghapus data dari API');
+        }
+    } catch (error) {
+        console.error('Terjadi kesalahan:', error);
+    }
+}
