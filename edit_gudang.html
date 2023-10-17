@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Document</title>
+</head>
+<body class="w-screen h-screen bg-[#F2F4F9]">
+    <header class="flex w-full h-14 bg-white justify-between px-20">
+        <div class="flex h-auto items-center space-x-6">
+            <img src="src/Logo Biru.png" alt="Logo" class="w-40 h-auto">
+            <nav>
+                <ul class="flex space-x-6">
+                    <li class="flex text-[#989B9E] space-x-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24">
+                            <path fill="currentColor"
+                                d="M13 9V3h8v6h-8ZM3 13V3h8v10H3Zm10 8V11h8v10h-8ZM3 21v-6h8v6H3Z" />
+                        </svg>
+                        <h3 class="font-bold">Dashboard</h3>
+                    </li>
+                    <li class="flex text-[#5371FF] space-x-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 16 16">
+                            <path fill="currentColor"
+                                d="M16 4L7.94 0L0 4v1h1v11h2V7h10v9h2V5h1V4zM4 6V5h2v1H4zm3 0V5h2v1H7zm3 0V5h2v1h-2z" />
+                            <path fill="currentColor"
+                                d="M6 9H5V8H4v3h3V8H6v1zm0 4H5v-1H4v3h3v-3H6v1zm4 0H9v-1H8v3h3v-3h-1v1z" />
+                        </svg>
+                        <h3 class="font-bold">Gudang</h3>
+                    </li>
+                    <li class="flex text-[#989B9E] space-x-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26"
+                            fill="currentColor">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M12.4251 0.261039C12.2556 0.430401 12.1815 1.5064 12.1815 3.79613C12.1815 6.51787 12.2367 7.14279 12.5005 7.40646C12.7589 7.66446 13.3381 7.72511 15.5458 7.72511H18.2723V8.43014V9.13517L14.8716 9.19074L11.4709 9.24632L11.4145 12.1642C11.3615 14.8999 11.3836 15.1001 11.7698 15.3703C12.231 15.693 12.3056 16.2416 11.9379 16.609C11.7649 16.7818 10.5335 16.8524 7.68876 16.8524C4.31834 16.8524 3.63293 16.8019 3.36433 16.5337C2.94468 16.1143 2.96193 15.9056 3.45143 15.4869C3.82357 15.1687 3.85748 14.8886 3.85748 12.1423V9.1449H2.96863C2.41275 9.1449 1.98193 9.26295 1.81809 9.4601C1.60654 9.71485 0.216628 17.0931 0.205867 18.0186C0.203634 18.2188 2.89493 18.2722 12.9936 18.2722C23.0923 18.2722 25.7836 18.2188 25.7813 18.0186C25.7706 17.0931 24.3807 9.71485 24.1691 9.4601C23.9647 9.21407 23.4675 9.1449 21.9019 9.1449H19.8965V8.435V7.72511H22.6982C24.6066 7.72511 25.5777 7.64742 25.7436 7.48171C26.0855 7.14015 26.0855 0.602602 25.7436 0.261039C25.3952 -0.0870132 12.7735 -0.0870132 12.4251 0.261039ZM19.5775 3.37871C19.7529 3.55415 19.8965 3.77584 19.8965 3.87138C19.8965 4.09672 19.3099 4.68269 19.0844 4.68269C18.8588 4.68269 18.2723 4.09672 18.2723 3.87138C18.2723 3.64603 18.8588 3.06006 19.0844 3.06006C19.18 3.06006 19.4019 3.20346 19.5775 3.37871ZM22.6229 3.37871C22.7983 3.55415 22.9418 3.77584 22.9418 3.87138C22.9418 4.09672 22.3553 4.68269 22.1297 4.68269C21.9042 4.68269 21.3176 4.09672 21.3176 3.87138C21.3176 3.64603 21.9042 3.06006 22.1297 3.06006C22.2254 3.06006 22.4473 3.20346 22.6229 3.37871ZM5.59476 6.55337C5.33387 6.92536 5.27865 7.72267 5.27865 11.117V15.2297H7.61344H9.94823V10.9095C9.94823 7.81983 9.87879 6.5199 9.7046 6.34588C9.55233 6.19376 8.79586 6.10248 7.68592 6.10248C6.08162 6.10248 5.88042 6.14589 5.59476 6.55337ZM16.5321 12.506C17.2119 13.1852 16.5989 13.8099 15.2531 13.8099C14.725 13.8099 14.1833 13.7004 14.0493 13.5665C13.7375 13.255 13.7375 12.7423 14.0493 12.4307C14.4095 12.0709 16.1492 12.1236 16.5321 12.506ZM21.1942 12.6437C21.5856 13.2672 21.1067 13.7004 19.9507 13.769C18.9711 13.827 18.2723 13.5063 18.2723 12.9986C18.2723 12.9031 18.4203 12.6769 18.6012 12.4962C19.0559 12.0419 20.8813 12.1457 21.1942 12.6437ZM16.5321 15.5484C17.2119 16.2276 16.5989 16.8524 15.2531 16.8524C14.725 16.8524 14.1833 16.7428 14.0493 16.609C13.7375 16.2974 13.7375 15.7847 14.0493 15.4731C14.4095 15.1133 16.1492 15.166 16.5321 15.5484ZM21.1942 15.6861C21.5856 16.3096 21.1067 16.7428 19.9507 16.8114C18.9711 16.8694 18.2723 16.5487 18.2723 16.041C18.2723 15.9455 18.4203 15.7194 18.6012 15.5386C19.0559 15.0843 20.8813 15.1882 21.1942 15.6861ZM0 22.6938C0 24.6004 0.0777586 25.5705 0.24363 25.7362C0.595676 26.0879 25.3915 26.0879 25.7436 25.7362C25.9095 25.5705 25.9872 24.6004 25.9872 22.6938V19.8948H12.9936H0V22.6938ZM14.9833 22.3693C15.3923 22.778 15.2606 23.3402 14.7061 23.5508C14.4197 23.6595 13.649 23.7485 12.9936 23.7485C11.5428 23.7485 10.7603 23.4802 10.7603 22.9828C10.7603 22.2904 11.1889 22.1259 12.9936 22.1259C14.081 22.1259 14.8316 22.2178 14.9833 22.3693Z" />
+                        </svg>
+                        <h3 class="font-bold">Kasir</h3>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <div class="relative">
+            <button id="button-dropdown-header" class="flex h-full items-center text-gray-600 space-x-2">
+                <img src="src/Photo Profil.png" alt="Foto Profil" class="w-10 rounded-full bg-gray-300">
+                <span class="font-bold">Diluar Nurul</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 256 256" class="rotate-180">
+                    <path fill="currentColor"
+                        d="M236.78 211.81A24.34 24.34 0 0 1 215.45 224H40.55a24.34 24.34 0 0 1-21.33-12.19a23.51 23.51 0 0 1 0-23.72l87.43-151.87a24.76 24.76 0 0 1 42.7 0l87.45 151.87a23.51 23.51 0 0 1-.02 23.72Z" />
+                </svg>
+            </button>
+            <div id="dropdown-header" class="absolute w-40 mt-1 hidden">
+                <div class="flex items-center bg-white text-gray-600 px-3 py-1 border border-gray-400">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24">
+                        <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                            stroke-width="2">
+                            <path
+                                d="m16.474 5.408l2.118 2.117m-.756-3.982L12.109 9.27a2.118 2.118 0 0 0-.58 1.082L11 13l2.648-.53c.41-.082.786-.283 1.082-.579l5.727-5.727a1.853 1.853 0 1 0-2.621-2.621Z" />
+                            <path d="M19 15v3a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h3" />
+                        </g>
+                    </svg>
+                    <span class="font-bold">Profil</span>
+                </div>
+                <div class="flex items-center text-red-500 bg-white space-x-1 px-3 py-1 border-b border-x border-gray-400">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24">
+                        <g fill="none">
+                            <path fill="currentColor" fill-rule="evenodd"
+                                d="M10.138 1.815A3 3 0 0 1 14 4.688v14.624a3 3 0 0 1-3.862 2.873l-6-1.8A3 3 0 0 1 2 17.512V6.488a3 3 0 0 1 2.138-2.873l6-1.8zM15 4a1 1 0 0 1 1-1h3a3 3 0 0 1 3 3v1a1 1 0 1 1-2 0V6a1 1 0 0 0-1-1h-3a1 1 0 0 1-1-1zm6 12a1 1 0 0 1 1 1v1a3 3 0 0 1-3 3h-3a1 1 0 1 1 0-2h3a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1zM9 11a1 1 0 1 0 0 2h.001a1 1 0 1 0 0-2H9z"
+                                clip-rule="evenodd" />
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M16 12h5m0 0l-2-2m2 2l-2 2" />
+                        </g>
+                    </svg>
+                    <span class="font-bold">Keluar</span>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="flex w-full justify-center">
+        <section class="w-full max-w-4xl bg-white mt-12">
+            <div class="bg-[#5371FF] text-xl font-bold px-9 py-4 rounded-t-lg">
+                <h1 class="text-white">EDIT BARANG</h1>
+            </div>
+            <div class="px-9 py-4 space-y-4"> 
+                <div class="w-full">
+                    <table class="w-full table-auto my-auto ">
+                        <tbody class="table w-full mx-auto">
+                            <tr class="">
+                                <td class="flex">Kode Barang</td>
+                                <td class=""><input type="text" name="" id="" class="border-2 w-full h-8"></td>
+                            </tr>
+                            <tr class="">
+                                <td class="flex">Nama Barang</td>
+                                <td class=""><input type="text" name="" id="" class="border-2 w-full h-8"></td>
+                            </tr>
+                            <tr class="">
+                                <td class="flex">Harga Beli</td>
+                                <td class=""><input type="text" name="" id="" class="border-2 w-full h-8"></td>
+                            </tr>
+                            <tr class="">
+                                <td class="flex">Harga Jual</td>
+                                <td class=""><input type="text" name="" id="" class="border-2 w-full h-8"></td>
+                            </tr>
+                            <tr class="">
+                                <td class="flex">Stok Barang</td>
+                                <td class=""><input type="text" name="" id="" class="border-2 w-full h-8"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="flex justify-center gap-4">
+                    <button class="rounded-full p-2 justify-center bg-[#5371FF]">Batal</button>
+                    <button class="rounded-full p-2 justify-center bg-[#5371FF]">Simpan</button>
+                </div>
+            </div>
+            <div class="w-full h-14 bg-[#C6D1FF] rounded-b-lg drop-shadow-xl"></div>
+        </section>
+    </main>
+    <footer></footer>
+</body>
+</html>
