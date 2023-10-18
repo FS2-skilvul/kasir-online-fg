@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="js/editGudang.js" defer></script>
     <title>Document</title>
 </head>
 <body class="w-screen h-screen bg-[#F2F4F9]">
@@ -76,45 +77,71 @@
         </div>
     </header>
     <main class="flex w-full justify-center">
-        <section class="w-full max-w-4xl bg-white mt-12">
+        <section class="w-full max-w-3xl bg-white mt-12">
             <div class="bg-[#5371FF] text-xl font-bold px-9 py-4 rounded-t-lg">
                 <h1 class="text-white">EDIT BARANG</h1>
             </div>
             <div class="px-9 py-4 space-y-4"> 
                 <div class="w-full">
-                    <table class="w-full table-auto my-auto ">
-                        <tbody class="table w-full mx-auto">
-                            <tr class="">
-                                <td class="flex">Kode Barang</td>
-                                <td class=""><input type="text" name="" id="" class="border-2 w-full h-8"></td>
-                            </tr>
-                            <tr class="">
-                                <td class="flex">Nama Barang</td>
-                                <td class=""><input type="text" name="" id="" class="border-2 w-full h-8"></td>
-                            </tr>
-                            <tr class="">
-                                <td class="flex">Harga Beli</td>
-                                <td class=""><input type="text" name="" id="" class="border-2 w-full h-8"></td>
-                            </tr>
-                            <tr class="">
-                                <td class="flex">Harga Jual</td>
-                                <td class=""><input type="text" name="" id="" class="border-2 w-full h-8"></td>
-                            </tr>
-                            <tr class="">
-                                <td class="flex">Stok Barang</td>
-                                <td class=""><input type="text" name="" id="" class="border-2 w-full h-8"></td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <form action="#" class="">
+                        <div class="w-full">
+                            <label for="kode-barang" class="block text-gray-700">Kode Barang</label>
+                            <input type="text" id="kode-barang" placeholder="Kode Barang"
+                                class="border border-grey-500 py-1 px-2 w-full focus:outline-none focus:shadow-outline-blue focus:border-blue-500 rounded-md shadow-md">
+                        </div>
+                        <div class="mt-5">
+                            <label for="nama-barang" class="block text-gray-700">Nama Barang</label>
+                            <input type="text" id="nama-barang" placeholder="Nama Barang"
+                                class="border border-grey-500 py-1 px-2 w-full focus:outline-none focus:shadow-outline-blue focus:border-blue-500 rounded-md shadow-md">
+                        </div>
+                        <div class="mt-5">
+                            <label for="harga-beli" class="block text-gray-700">Harga Beli</label>
+                            <div class="flex">
+                                <span class="mx-2">Rp.</span>
+                                <input type="number" id="harga-beli" placeholder="Harga Beli"
+                                    class="border border-grey-500 py-1 px-2 w-full focus:outline-none focus:shadow-outline-blue focus:border-blue-500 rounded-md shadow-md">
+                            </div>
+                        </div>
+                        <div class="mt-5">
+                            <label for="harga-jual" class="block text-gray-700">Harga Jual</label>
+                            <div class="flex">
+                                <span class="mx-2">Rp.</span>
+                                <input type="number" id="harga-jual" placeholder="Harga Jual"
+                                class="border border-grey-500 py-1 px-2 w-full focus:outline-none focus:shadow-outline-blue focus:border-blue-500 rounded-md shadow-md">
+                            </div>
+                        </div>
+                        <div class="mt-5">
+                            <label for="stok-barang" class="block text-gray-700">Stok Barang</label>
+                            <div class="flex ">
+                                <input type="number" id="stok-barang" value="" placeholder="Stok Barang"
+                                    class="border border-grey-500 py-1 px-2 w-full focus:outline-none focus:shadow-outline-blue focus:border-blue-500 rounded-md shadow-md">
+                                <span class="mx-2">Pcs</span>
+                            </div>
+                        </div>
+                    </form>
                 </div>
                 <div class="flex justify-center gap-4">
-                    <button class="rounded-full p-2 justify-center bg-[#5371FF]">Batal</button>
-                    <button class="rounded-full p-2 justify-center bg-[#5371FF]">Simpan</button>
+                    <button onclick="openModal()" class="rounded-md p-2 justify-center bg-[#5371FF] text-white font-bold">Batal</button>
+                    <button class="rounded-md p-2 justify-center bg-[#5371FF] text-white font-bold">Simpan</button>
                 </div>
             </div>
             <div class="w-full h-14 bg-[#C6D1FF] rounded-b-lg drop-shadow-xl"></div>
         </section>
     </main>
-    <footer></footer>
+    <div id="myModal" class="modal fixed top-0 left-0 w-full h-full flex items-center justify-center hidden drop-shadow-xl">
+        <div class="modal-content bg-white p-4 rounded shadow-md">
+          <div class="close text-right">
+            <span onclick="closeModal()" class="text-red-600 cursor-pointer">&times;</span>
+          </div>
+          <p>Apakah Anda yakin?</p>
+          <div class="mt-4 flex justify-end">
+            <button onclick="confirmAction(false)" class="bg-[#5371FF] text-white p-2 rounded mr-2">Tidak</button>
+            <button onclick="confirmAction(true)" class="bg-[#5371FF] text-white p-2 rounded ">Iya</button>
+          </div>
+        </div>
+      </div>
+    <footer>
+
+    </footer>
 </body>
 </html>
