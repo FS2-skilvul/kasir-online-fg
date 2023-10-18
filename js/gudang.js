@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', async function () {
                                             <path fill="currentColor"
                                                 d="M5 21h14c1.103 0 2-.897 2-2v-8.668l-2 2V19H8.158c-.026 0-.053.01-.079.01c-.033 0-.066-.009-.1-.01H5V5h6.847l2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2z" />
                                         </svg>
-                                        <span class="font-semibold">Edit</span>
+                                        <span class="font-semibold">Edit ${item.id}</span>
                                     </a>
                                     <button data-id="${item.id}" onclick="deleteItem(this)"
                                         class="flex justify-center items-center bg-red-500 px-3 py-0.5 rounded-lg hover:bg-red-600">
