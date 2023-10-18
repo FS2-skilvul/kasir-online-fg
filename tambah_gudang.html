@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="js/tambahGudang.js" defer></script>
-    <title>Document</title>
+    <title>Tambah Gudang</title>
 </head>
+
 <body class="w-screen h-screen bg-[#F2F4F9]">
     <header class="flex w-full h-14 bg-white justify-between px-20">
         <div class="flex h-auto items-center space-x-6">
@@ -61,7 +63,8 @@
                     </svg>
                     <span class="font-bold">Profil</span>
                 </div>
-                <div class="flex items-center text-red-500 bg-white space-x-1 px-3 py-1 border-b border-x border-gray-400">
+                <div
+                    class="flex items-center text-red-500 bg-white space-x-1 px-3 py-1 border-b border-x border-gray-400">
                     <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24">
                         <g fill="none">
                             <path fill="currentColor" fill-rule="evenodd"
@@ -77,71 +80,74 @@
         </div>
     </header>
     <main class="flex w-full justify-center">
-        <section class="w-full max-w-3xl bg-white mt-12">
+        <section class="w-full max-w-3xl bg-white mt-12 rounded-lg">
             <div class="bg-[#5371FF] text-xl font-bold px-9 py-4 rounded-t-lg">
-                <h1 class="text-white">Tambah BARANG</h1>
+                <h1 class="text-white">Tambah Barang</h1>
             </div>
-            <div class="px-9 py-4 space-y-4"> 
+            <div class="px-9 py-4 space-y-4">
                 <div class="w-full">
-                    <form action="#" class="">
+                    <form action="" id="myForm">
                         <div class="w-full">
-                            <label for="kode-barang" class="block text-gray-700">Kode Barang</label>
-                            <input type="text" id="kode-barang" placeholder="Kode Barang"
+                            <label for="kode_barang" class="block text-gray-700">Kode Barang</label>
+                            <input type="text" id="kode_barang" name="kode_barang" placeholder="Kode Barang"
                                 class="border border-grey-500 py-1 px-2 w-full focus:outline-none focus:shadow-outline-blue focus:border-blue-500 rounded-md shadow-md">
                         </div>
                         <div class="mt-5">
-                            <label for="nama-barang" class="block text-gray-700">Nama Barang</label>
-                            <input type="text" id="nama-barang" placeholder="Nama Barang"
+                            <label for="nama_barang" class="block text-gray-700">Nama Barang</label>
+                            <input type="text" id="nama_barang" name="nama_barang" placeholder="Nama Barang"
                                 class="border border-grey-500 py-1 px-2 w-full focus:outline-none focus:shadow-outline-blue focus:border-blue-500 rounded-md shadow-md">
                         </div>
                         <div class="mt-5">
-                            <label for="harga-beli" class="block text-gray-700">Harga Beli</label>
-                            <div class="flex">
+                            <label for="harga_beli" class="block text-gray-700">Harga Beli</label>
+                            <div class="flex items-center">
                                 <span class="mx-2">Rp.</span>
-                                <input type="number" id="harga-beli" placeholder="Harga Beli"
+                                <input type="number" id="harga_beli" name="harga_beli" placeholder="Harga Beli"
                                     class="border border-grey-500 py-1 px-2 w-full focus:outline-none focus:shadow-outline-blue focus:border-blue-500 rounded-md shadow-md">
                             </div>
                         </div>
                         <div class="mt-5">
-                            <label for="harga-jual" class="block text-gray-700">Harga Jual</label>
-                            <div class="flex">
+                            <label for="harga_jual" class="block text-gray-700">Harga Jual</label>
+                            <div class="flex items-center">
                                 <span class="mx-2">Rp.</span>
-                                <input type="number" id="harga-jual" placeholder="Harga Jual"
-                                class="border border-grey-500 py-1 px-2 w-full focus:outline-none focus:shadow-outline-blue focus:border-blue-500 rounded-md shadow-md">
+                                <input type="number" id="harga_jual" name="harga_jual" placeholder="Harga Jual"
+                                    class="border border-grey-500 py-1 px-2 w-full focus:outline-none focus:shadow-outline-blue focus:border-blue-500 rounded-md shadow-md">
                             </div>
                         </div>
                         <div class="mt-5">
-                            <label for="stok-barang" class="block text-gray-700">Stok Barang</label>
-                            <div class="flex ">
-                                <input type="number" id="stok-barang" value="" placeholder="Stok Barang"
+                            <label for="stok_barang" class="block text-gray-700">Stok Barang</label>
+                            <div class="flex items-center">
+                                <input type="number" id="stok_barang" name="stok_barang" placeholder="Stok Barang"
                                     class="border border-grey-500 py-1 px-2 w-full focus:outline-none focus:shadow-outline-blue focus:border-blue-500 rounded-md shadow-md">
                                 <span class="mx-2">Pcs</span>
                             </div>
                         </div>
+                        <div class="flex justify-end gap-4 mt-6">
+                            <button type="button" onclick="openModal()"
+                                class="rounded-md px-4 py-1 justify-center border-2 border-[#5371FF] text-[#5371FF] font-bold hover:bg-gray-100">Batal</button>
+                            <button type="submit" class="rounded-md px-4 py-1 justify-center bg-[#5371FF] text-white font-bold hover:bg-[#4A65E5]">Simpan</button>
+                        </div>
                     </form>
-                </div>
-                <div class="flex justify-center gap-4">
-                    <button onclick="openModal()" class="rounded-md p-2 justify-center bg-[#5371FF] text-white font-bold">Batal</button>
-                    <button class="rounded-md p-2 justify-center bg-[#5371FF] text-white font-bold">Simpan</button>
                 </div>
             </div>
             <div class="w-full h-14 bg-[#C6D1FF] rounded-b-lg drop-shadow-xl"></div>
         </section>
     </main>
-    <div id="myModal" class="modal fixed top-0 left-0 w-full h-full flex items-center justify-center hidden drop-shadow-xl">
+    <div id="myModal"
+        class="modal fixed top-0 left-0 w-full h-full flex items-center justify-center hidden drop-shadow-xl">
         <div class="modal-content bg-white p-4 rounded shadow-md">
-          <div class="close text-right">
-            <span onclick="closeModal()" class="text-red-600 cursor-pointer">&times;</span>
-          </div>
-          <p>Apakah Anda yakin?</p>
-          <div class="mt-4 flex justify-end">
-            <button onclick="confirmAction(false)" class="bg-[#5371FF] text-white p-2 rounded mr-2">Tidak</button>
-            <button onclick="confirmAction(true)" class="bg-[#5371FF] text-white p-2 rounded ">Iya</button>
-          </div>
+            <div class="close text-right">
+                <span onclick="closeModal()" class="text-red-600 cursor-pointer">&times;</span>
+            </div>
+            <p>Apakah anda yakin ingin membatalkan?</p>
+            <div class="mt-4 flex justify-end">
+                <button onclick="confirmAction(false)" class="bg-white border-2 border-[#5371FF] text-[#5371FF] font-semibold w-20 py-1 rounded mr-2">Tidak</button>
+                <button onclick="confirmAction(true)" class="bg-red-500 text-white w-20 py-1 rounded ">Iya</button>
+            </div>
         </div>
-      </div>
+    </div>
     <footer>
 
     </footer>
 </body>
+
 </html>
