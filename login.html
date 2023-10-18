@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Login kasir online</title>
+</head>
+
+<body class="flex flex-col lg:flex-row">
+
+    <div class="w-full lg:w-1/2 hidden lg:block bg-blue-500">
+        <div class="max-w-full py-3 px-12">
+            <img src="src/logo.png" alt="logo" class="mx-auto w-20 h-20">
+        </div>
+        <div class="py-3 px-12">
+            <img src="src/content.png" alt="content" class="mx-auto w-30 h-30">
+        </div>
+        <div class="text-center">
+            <h2 class="text-white">#solusiuntukUMKManda</h2>
+        </div>
+    </div>
+
+    <div class="w-full lg:w-1/2 py-10 lg:py-20 px-6 lg:px-20">
+        <h2 class="text-3xl mb-4 text-center">LOGIN</h2>
+        <form action="#" class="max-w-md mx-auto" id="formLogin">
+            <div class="mt-10">
+                <label for="email" class="block text-gray-700">Alamat Email*</label>
+                <input type="text" id="email" placeholder="Enter your email"
+                    class="border border-grey-500 py-1 px-2 w-full focus:outline-none focus:shadow-outline-blue focus:border-blue-500 rounded-md shadow-md">
+            </div>
+            <div class="mt-5">
+                <label for="password" class="block text-gray-700">Password*</label>
+                <input type="password" id="password" placeholder="Enter your password"
+                    class="border border-grey-500 py-1 px-2 w-full focus:outline-none focus:shadow-outline-blue focus:border-blue-500 rounded-md shadow-md">
+            </div>
+            <div class="mt-5 text-right">
+                <a href="#" class="w-full text-blue-500">Lupa Password?</a>
+
+            </div>
+            <div class="mt-5">
+                <button
+                    class="w-full bg-blue-500 py-3 text-center text-white focus:outline-none focus:shadow-outline-blue focus:border-blue-500 rounded-md shadow-md">MASUK</button>
+            </div>
+            <div class="mt-4 text-center">
+                <a href="#" class="w-full text-blue-500"> <span class="text-black">Belum punya akun?</span> Masuk
+                    disini</a>
+            </div>
+        </form>
+    </div>
+    <script src="js/login.js"></script>
+</body>
+
+</html>

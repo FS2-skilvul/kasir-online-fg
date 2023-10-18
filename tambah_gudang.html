@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="js/gudang.js" defer></script>
-    <title>Gudang</title>
+    <script src="js/tambahGudang.js" defer></script>
+    <title>Document</title>
 </head>
-
 <body class="w-screen h-screen bg-[#F2F4F9]">
     <header class="flex w-full h-14 bg-white justify-between px-20">
         <div class="flex h-auto items-center space-x-6">
@@ -79,86 +77,71 @@
         </div>
     </header>
     <main class="flex w-full justify-center">
-        <section class="w-full max-w-4xl bg-white mt-12">
+        <section class="w-full max-w-3xl bg-white mt-12">
             <div class="bg-[#5371FF] text-xl font-bold px-9 py-4 rounded-t-lg">
-                <h1 class="text-white">DAFTAR BARANG</h1>
+                <h1 class="text-white">Tambah BARANG</h1>
             </div>
-            <div class="px-9 py-4 space-y-4">
-                <div class="flex w-full justify-between">
-                    <a href="tambah_gudang.html"
-                        class="flex w-fit justify-center items-center bg-green-500 text-white py-1 px-2.5 hover:bg-green-600 font-semibold space-x-1">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24">
-                            <path fill="currentColor"
-                                d="M18 10h-4V6a2 2 0 0 0-4 0l.071 4H6a2 2 0 0 0 0 4l4.071-.071L10 18a2 2 0 0 0 4 0v-4.071L18 14a2 2 0 0 0 0-4z" />
-                        </svg>
-                        <span>Tambah Barang</span>
-                    </a>
-                    <div class="relative rounded-md shadow-sm">
-                        <input type="text"
-                            class="block w-full pl-10 pr-3 py-2 border rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                            placeholder="Cari..." />
-                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
-                                <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                    stroke-width="2" d="m20 20l-4.05-4.05m0 0a7 7 0 1 0-9.9-9.9a7 7 0 0 0 9.9 9.9z" />
-                            </svg>
-                        </div>
-                    </div>
-                </div>
+            <div class="px-9 py-4 space-y-4"> 
                 <div class="w-full">
-                    <table class="w-full table-auto border border-gray-600">
-                        <thead>
-                            <tr class="border border-gray-400 text-white text-bold bg-[#5371FF]">
-                                <th class="py-3 pl-3">No</th>
-                                <th class="py-3">Nama Barang</th>
-                                <th class="py-3">Kode Barang</th>
-                                <th class="py-3">Harga Beli</th>
-                                <th class="py-3">Harga Jual</th>
-                                <th class="py-3">Stok Barang</th>
-                                <th class="py-3">Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr class="border border-gray-400 font-medium">
-                                <td class="py-3 text-center pl-3">1</td>
-                                <td class="py-3 text-center">Cappucino</td>
-                                <td class="py-3 text-center">1CPP</td>
-                                <td class="py-3 text-center">Rp.20.000</td>
-                                <td class="py-3 text-center">Rp.50.000</td>
-                                <td class="py-3 text-center">110</td>
-                                <td class="flex py-3 text-white items-center justify-center space-x-3">
-                                    <a href="edit_gudang.html"
-                                        class="flex justify-center items-center bg-green-500 px-3 py-0.5 rounded-lg hover:bg-green-600">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
-                                            viewBox="0 0 24 24">
-                                            <path fill="currentColor"
-                                                d="m7 17.013l4.413-.015l9.632-9.54c.378-.378.586-.88.586-1.414s-.208-1.036-.586-1.414l-1.586-1.586c-.756-.756-2.075-.752-2.825-.003L7 12.583v4.43zM18.045 4.458l1.589 1.583l-1.597 1.582l-1.586-1.585l1.594-1.58zM9 13.417l6.03-5.973l1.586 1.586l-6.029 5.971L9 15.006v-1.589z" />
-                                            <path fill="currentColor"
-                                                d="M5 21h14c1.103 0 2-.897 2-2v-8.668l-2 2V19H8.158c-.026 0-.053.01-.079.01c-.033 0-.066-.009-.1-.01H5V5h6.847l2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2z" />
-                                        </svg>
-                                        <span class="font-semibold">Edit</span>
-                                    </a>
-                                    <a href=""
-                                        class="flex justify-center items-center bg-red-500 px-3 py-0.5 rounded-lg hover:bg-red-600">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
-                                            viewBox="0 0 24 24">
-                                            <path fill="currentColor"
-                                                d="M6 19a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V7H6v12M8 9h8v10H8V9m7.5-5l-1-1h-5l-1 1H5v2h14V4h-3.5Z" />
-                                        </svg>
-                                        <span class="font-semibold">Hapus</span>
-                                    </a>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <form action="#" class="">
+                        <div class="w-full">
+                            <label for="kode-barang" class="block text-gray-700">Kode Barang</label>
+                            <input type="text" id="kode-barang" placeholder="Kode Barang"
+                                class="border border-grey-500 py-1 px-2 w-full focus:outline-none focus:shadow-outline-blue focus:border-blue-500 rounded-md shadow-md">
+                        </div>
+                        <div class="mt-5">
+                            <label for="nama-barang" class="block text-gray-700">Nama Barang</label>
+                            <input type="text" id="nama-barang" placeholder="Nama Barang"
+                                class="border border-grey-500 py-1 px-2 w-full focus:outline-none focus:shadow-outline-blue focus:border-blue-500 rounded-md shadow-md">
+                        </div>
+                        <div class="mt-5">
+                            <label for="harga-beli" class="block text-gray-700">Harga Beli</label>
+                            <div class="flex">
+                                <span class="mx-2">Rp.</span>
+                                <input type="number" id="harga-beli" placeholder="Harga Beli"
+                                    class="border border-grey-500 py-1 px-2 w-full focus:outline-none focus:shadow-outline-blue focus:border-blue-500 rounded-md shadow-md">
+                            </div>
+                        </div>
+                        <div class="mt-5">
+                            <label for="harga-jual" class="block text-gray-700">Harga Jual</label>
+                            <div class="flex">
+                                <span class="mx-2">Rp.</span>
+                                <input type="number" id="harga-jual" placeholder="Harga Jual"
+                                class="border border-grey-500 py-1 px-2 w-full focus:outline-none focus:shadow-outline-blue focus:border-blue-500 rounded-md shadow-md">
+                            </div>
+                        </div>
+                        <div class="mt-5">
+                            <label for="stok-barang" class="block text-gray-700">Stok Barang</label>
+                            <div class="flex ">
+                                <input type="number" id="stok-barang" value="" placeholder="Stok Barang"
+                                    class="border border-grey-500 py-1 px-2 w-full focus:outline-none focus:shadow-outline-blue focus:border-blue-500 rounded-md shadow-md">
+                                <span class="mx-2">Pcs</span>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="flex justify-center gap-4">
+                    <button onclick="openModal()" class="rounded-md p-2 justify-center bg-[#5371FF] text-white font-bold">Batal</button>
+                    <button class="rounded-md p-2 justify-center bg-[#5371FF] text-white font-bold">Simpan</button>
                 </div>
             </div>
-            <div class="w-full h-14 bg-[#C6D1FF] rounded-b-lg drop-shadow-xl mb-9">
-
-            </div>
+            <div class="w-full h-14 bg-[#C6D1FF] rounded-b-lg drop-shadow-xl"></div>
         </section>
     </main>
-    <footer></footer>
-</body>
+    <div id="myModal" class="modal fixed top-0 left-0 w-full h-full flex items-center justify-center hidden drop-shadow-xl">
+        <div class="modal-content bg-white p-4 rounded shadow-md">
+          <div class="close text-right">
+            <span onclick="closeModal()" class="text-red-600 cursor-pointer">&times;</span>
+          </div>
+          <p>Apakah Anda yakin?</p>
+          <div class="mt-4 flex justify-end">
+            <button onclick="confirmAction(false)" class="bg-[#5371FF] text-white p-2 rounded mr-2">Tidak</button>
+            <button onclick="confirmAction(true)" class="bg-[#5371FF] text-white p-2 rounded ">Iya</button>
+          </div>
+        </div>
+      </div>
+    <footer>
 
+    </footer>
+</body>
 </html>
