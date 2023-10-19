@@ -34,6 +34,8 @@ document.addEventListener('DOMContentLoaded', async function () {
     // const nama = document.getElementById('nama');
     const tableBody = document.getElementById('tableBody');
 
+    const gudang = []
+
     // Menggunakan fetch untuk mengambil data dari API
     await fetch(apiUrl)
         .then(response => {
@@ -45,11 +47,12 @@ document.addEventListener('DOMContentLoaded', async function () {
         })
         .then(data => {
             // nama.textContent = data[id_pengguna].nama;
-
-            data.forEach((item, index) => {
-                const row = document.createElement('tr');
-                row.classList.add('border', 'border-gray-400', 'font-medium')
-                row.innerHTML = `<td class="py-3 text-center pl-3">${index + 1}</td>
+            let index = 0
+            data.forEach(item => {
+                if (item.id_users === id_pengguna) {
+                    const row = document.createElement('tr');
+                    row.classList.add('border', 'border-gray-400', 'font-medium')
+                    row.innerHTML = `<td class="py-3 text-center pl-3">${index + 1}</td>
                                 <td class="py-3 text-center">${item.nama_barang}</td>
                                 <td class="py-3 text-center">${item.kode_barang}</td>
                                 <td class="py-3 text-center">${item.harga_beli}</td>
@@ -78,7 +81,10 @@ document.addEventListener('DOMContentLoaded', async function () {
                                     </button>
                                 </td>
                                 `
-                tableBody.appendChild(row);
+                    tableBody.appendChild(row);
+                    index+=1
+                }
+
             });
         })
         .catch(error => {
