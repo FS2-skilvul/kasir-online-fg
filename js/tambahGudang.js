@@ -29,12 +29,14 @@ window.onclick = function (event) {
 
 document.getElementById('myForm').addEventListener('submit', function (event) {
   event.preventDefault(); // Mencegah pengiriman default formulir
-
+  const id_pengguna = parseInt(sessionStorage.getItem('id'), 10);
   // Mengambil data dari formulir
   const formData = new FormData(this);
 
   // Konversi FormData ke objek JSON
-  const formDataJSON = {};
+  const formDataJSON = {
+    'id_users': id_pengguna
+  };
   formData.forEach((value, key) => {
     formDataJSON[key] = value;
   });
@@ -60,7 +62,7 @@ document.getElementById('myForm').addEventListener('submit', function (event) {
 
 document.addEventListener("DOMContentLoaded", function () {
   // Profil
-  const id_pengguna = parseInt(sessionStorage.getItem('id'), 10);
+  
   const name = sessionStorage.getItem('name');
   const avatar = sessionStorage.getItem('avatar');
 
