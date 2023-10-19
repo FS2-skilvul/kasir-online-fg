@@ -44,14 +44,14 @@
         </div>
         <div class="relative">
             <button id="button-dropdown-header" class="flex h-full items-center text-gray-600 space-x-2">
-                <img src="src/Photo Profil.png" alt="Foto Profil" class="w-10 rounded-full bg-gray-300">
-                <span class="font-bold">Diluar Nurul</span>
+                <img id="foto_profil" src="src/Photo Profil.png" alt="Foto Profil" class="w-10 rounded-full bg-gray-300">
+                <span id="nama" class="font-bold">Diluar Nurul</span>
                 <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 256 256" class="rotate-180">
                     <path fill="currentColor"
                         d="M236.78 211.81A24.34 24.34 0 0 1 215.45 224H40.55a24.34 24.34 0 0 1-21.33-12.19a23.51 23.51 0 0 1 0-23.72l87.43-151.87a24.76 24.76 0 0 1 42.7 0l87.45 151.87a23.51 23.51 0 0 1-.02 23.72Z" />
                 </svg>
             </button>
-            <div id="dropdown-header" class="absolute w-40 mt-1 hidden">
+            <div id="dropdown-header" class="absolute w-40 mt-1 hidden  left-1/2 transform -translate-x-1/2">
                 <div class="flex items-center bg-white text-gray-600 px-3 py-1 border border-gray-400">
                     <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24">
                         <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
@@ -63,7 +63,7 @@
                     </svg>
                     <span class="font-bold">Profil</span>
                 </div>
-                <div class="flex items-center text-red-500 bg-white space-x-1 px-3 py-1 border-b border-x border-gray-400">
+                <button id="keluar" class="flex w-full items-center text-red-500 bg-white space-x-1 px-3 py-1 border-b border-x border-gray-400">
                     <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24">
                         <g fill="none">
                             <path fill="currentColor" fill-rule="evenodd"
@@ -74,7 +74,7 @@
                         </g>
                     </svg>
                     <span class="font-bold">Keluar</span>
-                </div>
+                </button>
             </div>
         </div>
     </header>
