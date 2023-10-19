@@ -27,7 +27,7 @@ window.onclick = function (event) {
   }
 }
 
-document.getElementById('myForm').addEventListener('submit', function(event) {
+document.getElementById('myForm').addEventListener('submit', function (event) {
   event.preventDefault(); // Mencegah pengiriman default formulir
 
   // Mengambil data dari formulir
@@ -36,24 +36,41 @@ document.getElementById('myForm').addEventListener('submit', function(event) {
   // Konversi FormData ke objek JSON
   const formDataJSON = {};
   formData.forEach((value, key) => {
-      formDataJSON[key] = value;
+    formDataJSON[key] = value;
   });
 
   // Kirim data ke API menggunakan metode fetch
   fetch('https://6523581ef43b179384155688.mockapi.io/api/v1/gudang', {
-      method: 'POST',
-      headers: {
-          'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(formDataJSON)
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(formDataJSON)
   })
-  .then(response => response.json())
-  .then(data => {
+    .then(response => response.json())
+    .then(data => {
       console.log('Data berhasil dikirim ke API:', data);
       alert("Data berhasil ditambahkan.");
       window.location.href = "gudang.html"
-  })
-  .catch(error => {
+    })
+    .catch(error => {
       console.error('Terjadi kesalahan:', error);
-  });
+    });
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+  // Profil
+  const id_pengguna = parseInt(sessionStorage.getItem('id'), 10);
+  const name = sessionStorage.getItem('name');
+  const avatar = sessionStorage.getItem('avatar');
+
+  document.getElementById('nama').textContent = name
+  // Cek apakah sessionStorage avatar null
+  if (avatar === "") {
+    // Jika avatar null, ganti dengan gambar lokal
+    document.getElementById('foto_profil').src = 'src/blank-profil.png';
+  } else {
+    // Jika avatar tidak null, gunakan avatar dari sessionStorage
+    document.getElementById('foto_profil').src = avatar;
+  }
+})

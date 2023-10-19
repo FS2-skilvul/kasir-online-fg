@@ -14,12 +14,24 @@ document.addEventListener('DOMContentLoaded', async function () {
         }
     })
 
-    sessionStorage.setItem('id_pengguna', 0)
-    const id_pengguna = parseInt(sessionStorage.getItem('id_pengguna'), 10);
+    // Profil
+    const id_pengguna = parseInt(sessionStorage.getItem('id'), 10);
+    const name = sessionStorage.getItem('name');
+    const avatar = sessionStorage.getItem('avatar');
+
+    document.getElementById('nama').textContent = name
+    // Cek apakah sessionStorage avatar null
+    if (avatar === "") {
+        // Jika avatar null, ganti dengan gambar lokal
+        document.getElementById('foto_profil').src = 'src/blank-profil.png';
+    } else {
+        // Jika avatar tidak null, gunakan avatar dari sessionStorage
+        document.getElementById('foto_profil').src = avatar;
+    }
 
     // URL API yang ingin Anda akses
     const apiUrl = 'https://6523581ef43b179384155688.mockapi.io/api/v1/gudang';
-    const nama = document.getElementById('nama');
+    // const nama = document.getElementById('nama');
     const tableBody = document.getElementById('tableBody');
 
     // Menggunakan fetch untuk mengambil data dari API
@@ -119,7 +131,7 @@ async function deleteItem(button) {
             // Misalnya, menghapus elemen HTML terkait dari tampilan.
             // Remove the item from the table
             const row = button.parentElement.parentElement;
-            
+
             if (row) {
                 const table = row.parentElement;
                 table.removeChild(row);
@@ -139,3 +151,10 @@ async function deleteItem(button) {
         console.error('Terjadi kesalahan:', error);
     }
 }
+
+document.getElementById('keluar').addEventListener('click', function () {
+    sessionStorage.removeItem('id')
+    sessionStorage.removeItem('name');
+    sessionStorage.removeItem('avatar');
+    window.location.href = 'index.html'
+})
