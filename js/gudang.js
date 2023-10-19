@@ -46,6 +46,7 @@ document.addEventListener('DOMContentLoaded', async function () {
     } else {
         // Jika avatar tidak null, gunakan avatar dari sessionStorage
         document.getElementById('foto_profil').src = avatar;
+        document.getElementById('foto_profil_mobile').src = avatar;
     }
 
     // URL API yang ingin Anda akses
