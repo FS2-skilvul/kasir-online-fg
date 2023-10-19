@@ -38,6 +38,6 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function register() {
-    alert("Aksi pendaftaran berhasil! (Contoh sederhana)");
+    alert("Registrasi pendaftaran berhasil!");
   }
 });
