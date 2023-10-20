@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
         .then(response => response.json())
         .then(data => {
           alert("Pendaftaran berhasil!");
-          window.location.href = "login.html"
+          window.location.href = "index.html"
         })
         .catch(error => {
           console.error('Terjadi kesalahan:', error);
@@ -66,11 +66,6 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function register() {
-<<<<<<< HEAD
     alert("Registrasi pendaftaran berhasil!");
-=======
-    alert("Aksi pendaftaran berhasil! (Contoh sederhana)");
-
->>>>>>> e5eb8867fdef314d5a28cb9f7657ed260858ef24
   }
 });
