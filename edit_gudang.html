@@ -10,8 +10,8 @@
 </head>
 
 <body class="w-screen h-screen bg-[#F2F4F9]">
-    <header class="flex w-full h-14 bg-white justify-between px-20">
-        <div class="flex h-auto items-center space-x-6">
+    <header class="flex w-full h-14 bg-white justify-between md:px-20 px-6">
+        <div class="h-auto items-center space-x-6 hidden lg:flex">
             <img src="src/Logo Biru.png" alt="Logo" class="w-40 h-auto">
             <nav>
                 <ul class="flex space-x-6">
@@ -42,16 +42,17 @@
                 </ul>
             </nav>
         </div>
-        <div class="relative">
+        <div class="relative hidden lg:block">
             <button id="button-dropdown-header" class="flex h-full items-center text-gray-600 space-x-2">
-                <img id="foto_profil" src="src/Photo Profil.png" alt="Foto Profil" class="w-10 rounded-full bg-gray-300">
+                <img id="foto_profil" src="src/Photo Profil.png" alt="Foto Profil"
+                    class="w-10 rounded-full bg-gray-300">
                 <span id="nama" class="font-bold">Diluar Nurul</span>
                 <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 256 256" class="rotate-180">
                     <path fill="currentColor"
                         d="M236.78 211.81A24.34 24.34 0 0 1 215.45 224H40.55a24.34 24.34 0 0 1-21.33-12.19a23.51 23.51 0 0 1 0-23.72l87.43-151.87a24.76 24.76 0 0 1 42.7 0l87.45 151.87a23.51 23.51 0 0 1-.02 23.72Z" />
                 </svg>
             </button>
-            <div id="dropdown-header" class="absolute w-40 mt-1 hidden">
+            <div id="dropdown-header" class="absolute w-40 mt-1 hidden  left-1/2 transform -translate-x-1/2">
                 <div class="flex items-center bg-white text-gray-600 px-3 py-1 border border-gray-400">
                     <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24">
                         <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
@@ -63,8 +64,8 @@
                     </svg>
                     <span class="font-bold">Profil</span>
                 </div>
-                <div
-                    class="flex items-center text-red-500 bg-white space-x-1 px-3 py-1 border-b border-x border-gray-400">
+                <button id="keluar-desktop"
+                    class="flex w-full items-center text-red-500 bg-white space-x-1 px-3 py-1 border-b border-x border-gray-400">
                     <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24">
                         <g fill="none">
                             <path fill="currentColor" fill-rule="evenodd"
@@ -75,7 +76,52 @@
                         </g>
                     </svg>
                     <span class="font-bold">Keluar</span>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile -->
+        <div class="flex h-full justify-center items-center space-x-6 lg:hidden">
+            <button id="burger-button">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-7" viewBox="0 0 32 32">
+                    <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                        stroke-width="2" d="M5 8h22M5 16h22M5 24h22" />
+                </svg>
+            </button>
+            <img src="src/Logo Biru.png" alt="Logo" class="w-24 h-auto">
+        </div>
+        <div class="flex h-full justify-center items-center lg:hidden">
+            <img id="foto_profil_mobile" src="src/Photo Profil.png" alt="Foto Profil" class="w-10 rounded-full bg-gray-300">
+        </div>
+
+        <!-- Menu Navigasi -->
+        <div id="menu"
+            class="hidden fixed inset-y-0 left-0 w-full bg-black bg-opacity-50 z-50 transform -translate-x-full translate-x-0 transition-transform">
+            <!-- Konten Menu -->
+            <div class="h-screen px-8 py-4 text-black bg-white w-40 space-y-2 font-semibold">
+                <!-- Tambahkan item-menu di sini -->
+                <div>
+                    <button id="close-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-8" viewBox="0 0 24 24">
+                            <path fill="currentColor"
+                                d="M6.4 19L5 17.6l5.6-5.6L5 6.4L6.4 5l5.6 5.6L17.6 5L19 6.4L13.4 12l5.6 5.6l-1.4 1.4l-5.6-5.6L6.4 19Z" />
+                        </svg>
+                    </button>
                 </div>
+                <button class="block">
+                    <h1>Beranda</h1>
+                </button>
+                <a href="gudang.html" class="block">
+                    <h1>Gudang</h1>
+                </a>
+                <button class="block">
+                    <h1>Kasir</h1>
+                </button>
+                <button class="block">
+                    <h1>Profil</h1>
+                </button>
+                <button id="keluar-mobile" class="keluar text-red-500">
+                    <h1>Keluar</h1>
+                </button>
             </div>
         </div>
     </header>
