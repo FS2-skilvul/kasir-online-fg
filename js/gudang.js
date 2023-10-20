@@ -14,13 +14,47 @@ document.addEventListener('DOMContentLoaded', async function () {
         }
     })
 
-    sessionStorage.setItem('id_pengguna', 0)
-    const id_pengguna = parseInt(sessionStorage.getItem('id_pengguna'), 10);
+    // Burger Menu
+    // Ambil elemen-elemen yang diperlukan
+    const burgerButton = document.getElementById("burger-button");
+    const closeButton = document.getElementById("close-button");
+    const menu = document.getElementById("menu");
+
+    // Tambahkan event listener pada tombol burger
+    burgerButton.addEventListener("click", (event) => {
+        event.preventDefault()
+        // menu.classList.toggle("transform");
+        menu.classList.remove("hidden");
+    });
+
+    closeButton.addEventListener("click", (event) => {
+        event.preventDefault()
+        // menu.classList.toggle("transform");
+        menu.classList.add("hidden");
+    });
+
+    // Profil
+    const id_pengguna = parseInt(sessionStorage.getItem('id'), 10);
+    const name = sessionStorage.getItem('name');
+    const avatar = sessionStorage.getItem('avatar');
+
+    document.getElementById('nama').textContent = name
+    // Cek apakah sessionStorage avatar null
+    if (avatar === "") {
+        // Jika avatar null, ganti dengan gambar lokal
+        document.getElementById('foto_profil').src = 'src/blank-profil.png';
+    } else {
+        // Jika avatar tidak null, gunakan avatar dari sessionStorage
+        document.getElementById('foto_profil').src = avatar;
+        document.getElementById('foto_profil_mobile').src = avatar;
+    }
 
     // URL API yang ingin Anda akses
     const apiUrl = 'https://6523581ef43b179384155688.mockapi.io/api/v1/gudang';
-    const nama = document.getElementById('nama');
+    // const nama = document.getElementById('nama');
     const tableBody = document.getElementById('tableBody');
+
+    const gudang = []
 
     // Menggunakan fetch untuk mengambil data dari API
     await fetch(apiUrl)
@@ -33,11 +67,12 @@ document.addEventListener('DOMContentLoaded', async function () {
         })
         .then(data => {
             // nama.textContent = data[id_pengguna].nama;
-
-            data.forEach((item, index) => {
-                const row = document.createElement('tr');
-                row.classList.add('border', 'border-gray-400', 'font-medium')
-                row.innerHTML = `<td class="py-3 text-center pl-3">${index + 1}</td>
+            let index = 0
+            data.forEach(item => {
+                if (item.id_users === id_pengguna) {
+                    const row = document.createElement('tr');
+                    row.classList.add('border', 'border-gray-400', 'font-medium')
+                    row.innerHTML = `<td class="py-3 text-center pl-3">${index + 1}</td>
                                 <td class="py-3 text-center">${item.nama_barang}</td>
                                 <td class="py-3 text-center">${item.kode_barang}</td>
                                 <td class="py-3 text-center">${item.harga_beli}</td>
@@ -66,7 +101,10 @@ document.addEventListener('DOMContentLoaded', async function () {
                                     </button>
                                 </td>
                                 `
-                tableBody.appendChild(row);
+                    tableBody.appendChild(row);
+                    index += 1
+                }
+
             });
         })
         .catch(error => {
@@ -74,32 +112,46 @@ document.addEventListener('DOMContentLoaded', async function () {
             console.error('There was a problem with the fetch operation:', error);
         });
 
-    // // Misalkan ada tombol "Hapus" dalam HTML dengan atribut data-id yang menyimpan ID data yang ingin dihapus.
-    // const deleteButtons = document.querySelectorAll('[data-id]');
-
-    // // Tambahkan event listener untuk setiap tombol "Hapus"
-    // deleteButtons.forEach(button => {
-    //     button.addEventListener('click', async event => {
-    //         const dataId = event.target.getAttribute('data-id');
-    //         console.log(dataId);
-    //         try {
-    //             const response = await fetch(`https://6523581ef43b179384155688.mockapi.io/api/v1/gudang/${dataId}`, {
-    //                 method: 'DELETE',
-    //             });
-
-    //             if (response.ok) {
-    //                 // Data telah berhasil dihapus dari API
-    //                 // Anda dapat melakukan tindakan apa pun yang diperlukan setelah penghapusan berhasil.
-    //                 // Misalnya, menghapus elemen HTML terkait dari tampilan.
-    //                 event.target.parentElement.remove(); // Menghapus baris yang terkait dari tampilan
-    //             } else {
-    //                 console.error('Gagal menghapus data dari API');
-    //             }
-    //         } catch (error) {
-    //             console.error('Terjadi kesalahan:', error);
-    //         }
-    //     });
-    // });
+    // Mobile
+    const card = document.getElementById('card-product')
+    const hasilFetch = await fetch('https://6523581ef43b179384155688.mockapi.io/api/v1/gudang')
+    const data = await hasilFetch.json()
+    data.forEach(product => {
+        if (product.id_users === id_pengguna) {
+            const baris = document.createElement('div');
+            baris.classList.add('grid', 'grid-cols-3', 'border-y-2', 'border-gray-200')
+            baris.innerHTML = `<div class="flex flex-col justify-center text-gray-700 pl-2">
+                                    <h1 class="font-bold text-lg">${product.nama_barang}</h1>
+                                    <h1 class="font-semibold">${product.kode_barang}</h1>
+                                </div>
+                                <div class="flex flex-col justify-center text-gray-700">
+                                    <p class="font-medium">Harga Beli: ${product.harga_beli}</p>
+                                    <p class="font-medium">Harga Jual: ${product.harga_jual}</p>
+                                    <p class="font-medium">Stok: ${product.stok_barang}</p>
+                                </div>
+                                <div class="flex flex-col py-3 text-white justify-center items-center space-y-1">
+                                    <a href="edit_gudang.html?id=${product.id}"
+                                        class="flex w-24 justify-center items-center bg-green-500 px-3 py-0.5 rounded-lg hover:bg-green-600">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
+                                            <path fill="currentColor"
+                                                d="m7 17.013l4.413-.015l9.632-9.54c.378-.378.586-.88.586-1.414s-.208-1.036-.586-1.414l-1.586-1.586c-.756-.756-2.075-.752-2.825-.003L7 12.583v4.43zM18.045 4.458l1.589 1.583l-1.597 1.582l-1.586-1.585l1.594-1.58zM9 13.417l6.03-5.973l1.586 1.586l-6.029 5.971L9 15.006v-1.589z" />
+                                            <path fill="currentColor"
+                                                d="M5 21h14c1.103 0 2-.897 2-2v-8.668l-2 2V19H8.158c-.026 0-.053.01-.079.01c-.033 0-.066-.009-.1-.01H5V5h6.847l2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2z" />
+                                        </svg>
+                                        <span class="font-semibold">Edit</span>
+                                    </a>
+                                    <button data-id="${product.id}" onclick="deleteItem(this)"
+                                        class="flex w-24 justify-center items-center bg-red-500 px-3 py-0.5 rounded-lg hover:bg-red-600">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
+                                            <path fill="currentColor"
+                                                d="M6 19a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V7H6v12M8 9h8v10H8V9m7.5-5l-1-1h-5l-1 1H5v2h14V4h-3.5Z" />
+                                        </svg>
+                                        <span class="font-semibold">Hapus</span>
+                                    </button>
+                                </div>`
+            card.appendChild(baris)
+        }
+    })
 })
 
 async function deleteItem(button) {
@@ -119,7 +171,7 @@ async function deleteItem(button) {
             // Misalnya, menghapus elemen HTML terkait dari tampilan.
             // Remove the item from the table
             const row = button.parentElement.parentElement;
-            
+
             if (row) {
                 const table = row.parentElement;
                 table.removeChild(row);
@@ -139,3 +191,17 @@ async function deleteItem(button) {
         console.error('Terjadi kesalahan:', error);
     }
 }
+
+document.getElementById('keluar-desktop').addEventListener('click', function () {
+    sessionStorage.removeItem('id')
+    sessionStorage.removeItem('name');
+    sessionStorage.removeItem('avatar');
+    window.location.href = 'index.html'
+})
+
+document.getElementById('keluar-mobile').addEventListener('click', function () {
+    sessionStorage.removeItem('id')
+    sessionStorage.removeItem('name');
+    sessionStorage.removeItem('avatar');
+    window.location.href = 'index.html'
+})
