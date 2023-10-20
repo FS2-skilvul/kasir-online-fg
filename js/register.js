@@ -1,23 +1,51 @@
 document.addEventListener("DOMContentLoaded", function () {
-  var registerForm = document.getElementById("formRegister");
-  var nameInput = document.getElementById("name");
-  var emailInput = document.getElementById("email");
-  var passwordInput = document.getElementById("password");
-  var confirmPasswordInput = document.getElementById("confirmPassword");
+  let registerForm = document.getElementById("formRegister");
+  let nameInput = document.getElementById("name");
+  let emailInput = document.getElementById("email");
+  let passwordInput = document.getElementById("password");
+  let confirmPasswordInput = document.getElementById("confirmPassword");
 
   registerForm.addEventListener("submit", function (event) {
     event.preventDefault();
 
     if (validateForm()) {
-      register();
+      // register();
+      let name = nameInput.value;
+      let email = emailInput.value;
+      let password = passwordInput.value;
+      let avatar = ""
+      const data = {
+        name: name,
+        email: email,
+        password: password,
+        avatar: avatar
+      }
+      
+
+      // Kirim data ke API menggunakan metode fetch
+      fetch('https://6523581ef43b179384155688.mockapi.io/api/v1/users', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      })
+        .then(response => response.json())
+        .then(data => {
+          alert("Pendaftaran berhasil!");
+          window.location.href = "login.html"
+        })
+        .catch(error => {
+          console.error('Terjadi kesalahan:', error);
+        });
     }
   });
 
   function validateForm() {
-    var name = nameInput.value;
-    var email = emailInput.value;
-    var password = passwordInput.value;
-    var confirmPassword = confirmPasswordInput.value;
+    let name = nameInput.value;
+    let email = emailInput.value;
+    let password = passwordInput.value;
+    let confirmPassword = confirmPasswordInput.value;
 
     if (
       name === "" ||
@@ -38,6 +66,11 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function register() {
+<<<<<<< HEAD
     alert("Registrasi pendaftaran berhasil!");
+=======
+    alert("Aksi pendaftaran berhasil! (Contoh sederhana)");
+
+>>>>>>> e5eb8867fdef314d5a28cb9f7657ed260858ef24
   }
 });

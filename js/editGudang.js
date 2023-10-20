@@ -80,6 +80,21 @@ document.getElementById("editForm").addEventListener("submit", function (event) 
 });
 
 document.addEventListener('DOMContentLoaded', function () {
+  // Profil
+  const id_pengguna = parseInt(sessionStorage.getItem('id'), 10);
+  const name = sessionStorage.getItem('name');
+  const avatar = sessionStorage.getItem('avatar');
+
+  document.getElementById('nama').textContent = name
+  // Cek apakah sessionStorage avatar null
+  if (avatar === "") {
+    // Jika avatar null, ganti dengan gambar lokal
+    document.getElementById('foto_profil').src = 'src/blank-profil.png';
+  } else {
+    // Jika avatar tidak null, gunakan avatar dari sessionStorage
+    document.getElementById('foto_profil').src = avatar;
+  }
+
   // Untuk mendapatkan parameter id
   const urlParams = new URLSearchParams(window.location.search);
   const id = urlParams.get('id');
