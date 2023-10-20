@@ -13,30 +13,29 @@ document.addEventListener("DOMContentLoaded", function () {
       let name = nameInput.value;
       let email = emailInput.value;
       let password = passwordInput.value;
-      let avatar = ""
+      let avatar = "";
       const data = {
         name: name,
         email: email,
         password: password,
-        avatar: avatar
-      }
-      
+        avatar: avatar,
+      };
 
       // Kirim data ke API menggunakan metode fetch
-      fetch('https://6523581ef43b179384155688.mockapi.io/api/v1/users', {
-        method: 'POST',
+      fetch("https://6523581ef43b179384155688.mockapi.io/api/v1/users", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json'
+          "Content-Type": "application/json",
         },
-        body: JSON.stringify(data)
+        body: JSON.stringify(data),
       })
-        .then(response => response.json())
-        .then(data => {
+        .then((response) => response.json())
+        .then((data) => {
           alert("Pendaftaran berhasil!");
-          window.location.href = "login.html"
+          window.location.href = "index.html";
         })
-        .catch(error => {
-          console.error('Terjadi kesalahan:', error);
+        .catch((error) => {
+          console.error("Terjadi kesalahan:", error);
         });
     }
   });
@@ -66,11 +65,6 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function register() {
-<<<<<<< HEAD
     alert("Registrasi pendaftaran berhasil!");
-=======
-    alert("Aksi pendaftaran berhasil! (Contoh sederhana)");
-
->>>>>>> e5eb8867fdef314d5a28cb9f7657ed260858ef24
   }
 });
