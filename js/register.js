@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function () {
         .then((response) => response.json())
         .then((data) => {
           alert("Pendaftaran berhasil!");
-          window.location.href = "login.html";
+          window.location.href = "index.html";
         })
         .catch((error) => {
           console.error("Terjadi kesalahan:", error);
